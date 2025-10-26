@@ -1,0 +1,85 @@
+.windPtr {
+    flex: 1;
+    display: flex;
+    justifyContent: "space-around";
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 2px solid #ccc;
+    position: absolute;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600vh;
+    max-height: 120vh;
+    /*overflow-y: auto;*/
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.windPrt h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.windPrt form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.windPrt::-webkit-scrollbar {
+    width: 8px;
+}
+
+.windPrt::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.windPrt::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+}
+
+.carousel-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    display: none; /* Ocultar todas las diapositivas */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.carousel-slide.active {
+    display: block; /* Mostrar solo la diapositiva activa */
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 10px; /* Botón izquierdo */
+}
+
+.carousel-button.next {
+    right: 10px; /* Botón derecho */
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

@@ -1,0 +1,13 @@
+.sistema{
+    width: 55%; /* ocupa el ancho porcentual disponible dentro de la columna*/
+    height: 100%; /* ocupa el alto porcentual disponible dentro de la columna*/
+    padding: 10px; /*espacio interno*/
+    background-color: lightgray;
+    border: 1px solid #1a1a1a; /*borde*/
+    border-radius: 10px; /*redondeo de bordes*/
+    box-shadow: 2px 2px 8px #1a1a1a; /*sombra*/
+    display: flex; /* flex box para centrar contenido */
+    flex-direction: column; /* Apila elementos verticalmente */
+    justify-content: center; /* centra verticalemente */
+    align-items: center; /* centra horizontalmente */
+}

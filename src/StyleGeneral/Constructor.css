@@ -1,0 +1,105 @@
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-content {
+    text-align: center;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background: #0056b3;
+}
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease;
+    transform: translateX(-${currentIndex * 100}%)
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel-button.prev {
+    left: 10px; /* Posición del botón izquierdo */
+}
+
+.carousel-button.next {
+    right: 10px; /* Posición del botón derecho */
+}
+
+/* Estilo del contenedor principal */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Título del menú */
+.menu-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Contenedor de las cartas */
+.menu-items {
+    display: flex;
+    gap: 20px; /* Espacio entre cartas */
+    flex-wrap: wrap; /* Para que se ajusten en pantallas pequeñas */
+}
+
+/* Estilo de cada carta */
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: 150px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de la imagen */
+.menu-card img {
+    margin-bottom: 10px;
+}
+
+.subir-imagen{
+    border: 1px solid #ccc;
+    gap: 20px;
+}
+/* Estilo del título */
+.menu-card h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Estilo de la descripción */
+.menu-card p {
+    font-size: 14px;
+    color: #777;
+}

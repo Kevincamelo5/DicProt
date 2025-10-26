@@ -1,0 +1,16 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+    <!-- Cabeza -->
+    <circle cx="100" cy="50" r="30" fill="#f4f4f4" stroke="#000" stroke-width="4"/>
+
+    <!-- Cuerpo -->
+    <line x1="100" y1="80" x2="100" y2="180" stroke="#000" stroke-width="7"/>
+
+    <!-- Brazos -->
+    <line x1="100" y1="100" x2="60" y2="130" stroke="#000" stroke-width="7"/>
+    <line x1="100" y1="100" x2="140" y2="130" stroke="#000" stroke-width="7"/>
+
+    <!-- Piernas -->
+    <line x1="100" y1="180" x2="70" y2="250" stroke="#000" stroke-width="7"/>
+    <line x1="100" y1="180" x2="130" y2="250" stroke="#000" stroke-width="7"/>
+</svg>

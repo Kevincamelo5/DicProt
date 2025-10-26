@@ -1,0 +1,9 @@
+.carousel {
+    position: relative;
+    gap: 2px;
+}
+
+.close-button {
+    background-color: #ed1332;
+
+}

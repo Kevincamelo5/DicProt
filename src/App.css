@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  gap: 10px;
+}
+.App{
+  display: flex;
+flex-direction: row;
+  height: 100%;
+}
+button {
+  margin-left: 10px;
+}
+header {
+  position: absolute;
+  padding: 10px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  transition: 0.7s;
+  /*padding: 30px 20px;*/
+  background-color: #5a5a5a;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  position: relative;
+  font-weight: bold; /*estilo de la letra*/
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.7s;
+}
+
+/* Sección principal */
+section {
+  flex: 1; /* Ocupa el resto del espacio disponible */
+  margin-top: 20px; /* Margen superior fijo */
+  padding:  60px 0;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+}/* Espacio interno horizontal */
+
+.WindPrt {
+  flex: 1; /* Ocupa el espacio restante */
+  display: flex;
+  gap: 10vh;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-left: 1px solid #ccc; /* Separación visual */
+  overflow-y: auto; /* Scroll vertical si es necesario */
+}
+
+section > div:first-child {
+  flex: 3;
+  padding: 30px;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+section > div:last-child {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-left: 3px solid black;
+  height: 80%;
+}
+
+.import-label {
+  color: #f9f9f9;
+}
