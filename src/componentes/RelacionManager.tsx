@@ -17,7 +17,7 @@ const RelacionManager: React.FC<RelationManagerProps> = ({
                                                            initialRelations = {},
                                                          }) => {
   const [selected, setSelected] = useState<number[]>(selectedIds);
-  const [relationInputs, setRelationInputs] = useState<Record<number, string>>(initialRelations);
+  const [relationInputs] = useState<Record<number, string>>(initialRelations);
 
   const handleSelectChange = (id: number) => {
     setSelected((prev) => {
@@ -30,9 +30,9 @@ const RelacionManager: React.FC<RelationManagerProps> = ({
     });
   };
 
-  const handleTextChange = (id: number, text: string) => {
+  /*const handleTextChange = (id: number, text: string) => {
     setRelationInputs((prev) => ({ ...prev, [id]: text }));
-  };
+  };*/
 
   const handleSave = () => {
     const newRelations = selected.map((id) => ({
