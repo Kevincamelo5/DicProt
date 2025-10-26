@@ -3,6 +3,7 @@ import Image from "../assets/Image.svg";
 import Clip from "../assets/Clip.svg";
 
 import "../StyleGeneral/Constructor.css"
+import {Caso} from "./Objects.tsx";
 // Plantilla para "iniciar sesion"
 export const LoginTemplate = () => {
   return (
@@ -112,50 +113,6 @@ export const SearchTemplate = () => {
   )
 }
 
-export const CarouselTemplate = ({ caso }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const slides = caso.slides
-    ? caso.slides.map((text) => ({ content: text }))
-    : [
-      { content: "Texto de ejemplo 1" },
-      { content: "Texto de ejemplo 2" },
-      { content: "Texto de ejemplo 3" }
-    ];
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-    );
-  };
-
-  return (
-    <div className="carousel-container">
-      <h3>{caso.name}</h3>
-      <div className="carousel-slide">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`slide ${index === currentIndex ? "active" : ""}`}
-          >
-            {slide.content}
-          </div>
-        ))}
-      </div>
-      <button onClick={prevSlide} className="carousel-button prev">
-        ←
-      </button>
-      <button onClick={nextSlide} className="carousel-button next">
-        →
-      </button>
-    </div>
-  );
-};
-
 export const AddElementTemplate = () => {
   return (
     <div>
@@ -234,7 +191,7 @@ export const PublishTemplate = () => {
     </div>
   )
 }
-export const DefaultTemplate = ({caso} : { caso: any }) => {
+export const DefaultTemplate = ({caso} : { caso: Caso }) => {
   return (
     <div>
       <h3>{caso.name}</h3>

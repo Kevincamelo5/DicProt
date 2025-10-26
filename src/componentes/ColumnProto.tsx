@@ -3,7 +3,7 @@ import "../StyleGeneral/ColumnProto.css";
 import ActorIcon from "../assets/Actor.svg";
 import ActorModal from "./ActorFModal";
 import CasoModal from "./CasoFModal";
-import { Caso, Actor, MyObject } from "./Objects";
+import { Caso, Actor} from "./Objects";
 
 interface ColumnProtoProps {
   casos: Caso[];

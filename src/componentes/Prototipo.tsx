@@ -6,7 +6,6 @@
   RegisterTemplate,
   SearchTemplate,
   MenuTemplate,
-  CarouselTemplate,
   AddElementTemplate,
   RecoverPasswordTemplate,
   CloseSessionTemplate,
@@ -68,11 +67,6 @@
           {
             names: ["visualizar menu", "ver menu", "menu principal"],
             component: MenuTemplate,
-            threshold: 0.49,
-          },
-          {
-            names: ["visualizar carrusel", "ver carrusel", "galeria", "ver promocional"],
-            component: CarouselTemplate,
             threshold: 0.49,
           },
           {
