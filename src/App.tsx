@@ -5,7 +5,7 @@ import IconCaso from './assets/CasoDeUso.svg';
 import './App.css'
 import React, { useState } from "react";
 import WindPrt from "./componentes/Prototipo.tsx";
-import { Actor, Caso} from "./componentes/Objects.tsx"
+import { Actor, Caso } from "./componentes/Objects.tsx"
 import AcercaDeComponent from "./componentes/AcercaDe.tsx";
 
 interface ImportedData {
@@ -22,31 +22,31 @@ interface ImportedData {
 }
 
 //nav list para importar y exportar
-function LiImpExp({onExport, onImport}: {onExport: () => void; onImport: (importedData: ImportedData) => void}) {
+function LiImpExp({ onExport, onImport }: { onExport: () => void; onImport: (importedData: ImportedData) => void }) {
   const handleFileInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e) =>{
+      reader.onload = (e) => {
         try {
           const content = e.target?.result as string;
           const importedData = JSON.parse(content) as ImportedData;
 
           //validar estructura basica
-          if(importedData.meta && importedData.actors && importedData.casos && importedData.relations) {
+          if (importedData.meta && importedData.actors && importedData.casos && importedData.relations) {
             onImport(importedData);
           } else {
             alert('El archivo no tiene el formato correcto (.pcu)');
           }
         } catch (error) {
-          console.error('Error al importar:',error);
+          console.error('Error al importar:', error);
           alert('Error al procesar el archivo. Asegúrese de que es un archivo .pcu válido.')
         }
       };
       reader.readAsText(file);
 
       // Resetear el input para permitir volver a importar el mismo archivo
-      event.target.value='';
+      event.target.value = '';
     }
   };
 
@@ -56,19 +56,19 @@ function LiImpExp({onExport, onImport}: {onExport: () => void; onImport: (import
         <li><input
           type="file"
           id="import-file"
-          style={{display: 'none'}}
+          style={{ display: 'none' }}
           accept=".pcu"
           onChange={handleFileInput}
         />
-        <label htmlFor="import-file" className="import-label">Importar</label>
+          <label htmlFor="import-file" className="import-label">Importar</label>
         </li>
-        <li><button onClick={onExport} className="export-button">Exportar</button></li>
+        <li><label onClick={onExport} className="import-label">Exportar</label></li>
       </ul>
     </nav>
   );
 }
 
-const App: React.FC = ()=> {
+const App: React.FC = () => {
   // Estado para almacenar los casos generados
   const [generatedCasos, setGeneratedCasos] = useState<Caso[]>([]);
   //Estado para almacenar los Actores
@@ -83,12 +83,12 @@ const App: React.FC = ()=> {
   //funcion para exportar los datos
   const exportData = () => {
     const data = {
-      meta  : {
+      meta: {
         version: '1.0',
         createdAt: new Date().toISOString(),
-        appName:'Prototipo de Casos de Uso'
+        appName: 'Prototipo de Casos de Uso'
       },
-      actors:  generatedActors,
+      actors: generatedActors,
       casos: generatedCasos,
       relations: relations
     };
@@ -99,7 +99,7 @@ const App: React.FC = ()=> {
 
     const a = document.createElement('a');
     a.href = url;
-      a.download = `prototipo_${new Date().toISOString().replace(/[:/]/g, '-')}.pcu`;
+    a.download = `prototipo_${new Date().toISOString().replace(/[:/]/g, '-')}.pcu`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -108,7 +108,7 @@ const App: React.FC = ()=> {
 
   //funcion para importar los datos
   const importData = (importedData: ImportedData) => {
-    if (!window.confirm('¿Está seguro que desea importar este archivo? se perderán los cambios actuales.')){
+    if (!window.confirm('¿Está seguro que desea importar este archivo? se perderán los cambios actuales.')) {
       return;
     }
 
@@ -120,7 +120,7 @@ const App: React.FC = ()=> {
   };
 
   // Función para generar un nuevo caso
-  const generateCaso = (): void =>{
+  const generateCaso = (): void => {
     const newCaso: Caso = {
       id: Math.floor(Math.random() * 1000000),
       name: "caso",
@@ -130,18 +130,18 @@ const App: React.FC = ()=> {
       type: "caso",
       isUniqueView: false,
     };
-    setGeneratedCasos((prevCaso) => [...prevCaso, {...newCaso, type: "caso"}]);
+    setGeneratedCasos((prevCaso) => [...prevCaso, { ...newCaso, type: "caso" }]);
   };
 
 
-  const generateActor = (): void =>{
+  const generateActor = (): void => {
     const newActor: Actor = {
       id: Math.floor(Math.random() * 1000000),
       name: "Actor",
       relaciones: [],
       type: "actor",
     }
-    setGeneratedActors((prevActor) => [...prevActor, {...newActor, type: "actor"}]);
+    setGeneratedActors((prevActor) => [...prevActor, { ...newActor, type: "actor" }]);
   }
 
   // Eliminar caso
@@ -157,7 +157,7 @@ const App: React.FC = ()=> {
     });
   };
 
-// Eliminar actor
+  // Eliminar actor
   const deleteActor = (id: number) => {
     setGeneratedActors((prev) => prev.filter((a) => a.id !== id));
     setRelations((prev) => {
@@ -181,7 +181,7 @@ const App: React.FC = ()=> {
     updateRelations(updatedActor.id, newRelations);
   };
 
-// Actualizar caso
+  // Actualizar caso
   const onCasoUpdate = (updatedCaso: Caso) => {
     setGeneratedCasos((prev) =>
       prev.map((c) => (c.id === updatedCaso.id ? updatedCaso : c))
@@ -213,12 +213,17 @@ const App: React.FC = ()=> {
     <div className="App">
       <header className="App-header">
         <div id="tooldiagramador">
-          <button onClick={generateActor}><img src={IconActor} width={24} height={24}/></button>
-          <button onClick={generateCaso}><img src={IconCaso} width ={24} height = {24} /></button>
+          <button onClick={generateActor}><img src={IconActor} width={24} height={24} /></button>
+          <button onClick={generateCaso}><img src={IconCaso} width={24} height={24} /></button>
         </div>
 
-        < LiImpExp onExport={exportData} onImport={importData}/>
+        < LiImpExp onExport={exportData} onImport={importData} />
         <button type="button" onClick={() => setIsAboutOpen(true)}>?</button>
+
+        {/** dark mode button */}
+        <input type="checkbox"></input>
+
+        {/* Enfoque list */}
         <h1 className="App-title"></h1>
       </header>
       <section>
@@ -235,7 +240,7 @@ const App: React.FC = ()=> {
         />
         <AcercaDeComponent isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
         <div className="WindPrt" style={{}}>
-            <WindPrt casos={generatedCasos} currentView={currentView} />
+          <WindPrt casos={generatedCasos} currentView={currentView} />
         </div>
       </section>
     </div>
