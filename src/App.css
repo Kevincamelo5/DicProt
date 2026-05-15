@@ -111,3 +111,31 @@ section>div:last-child {
 .import-label {
   color: #f9f9f9;
 }
+
+:root {
+  /* Paleta Modo Claro (Por defecto) */
+  --bg-body: #ffffff;
+  --text-main: #213547;
+  --bg-header: #5a5a5a;
+  --bg-panel: #f9f9f9;
+  --border-color: #ccc;
+  --bg-modal: #ffffff;
+  --text-modal: #333333;
+}
+
+body.dark-mode {
+  /* Paleta Modo Oscuro */
+  --bg-body: #242424;
+  --text-main: rgba(0, 0, 0, 0.87);
+  --bg-header: #1a1a1a;
+  --bg-panel: #2a2a2a;
+  --border-color: #ffffff;
+  --bg-modal: #2a2a2a;
+  --text-modal: #ffffff;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  /* mantén el resto de tus estilos del body aquí */
+}

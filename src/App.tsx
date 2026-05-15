@@ -3,7 +3,7 @@ import ColumnProto from "./componentes/ColumnProto.tsx";
 import IconActor from './assets/Actor.svg';
 import IconCaso from './assets/CasoDeUso.svg';
 import './App.css'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WindPrt from "./componentes/Prototipo.tsx";
 import { Actor, Caso } from "./componentes/Objects.tsx"
 import AcercaDeComponent from "./componentes/AcercaDe.tsx";
@@ -69,6 +69,8 @@ function LiImpExp({ onExport, onImport }: { onExport: () => void; onImport: (imp
 }
 
 const App: React.FC = () => {
+  // dark mode state
+  const [isDarkMode, setIsDarkMode] = useState(false);
   // Estado para almacenar los casos generados
   const [generatedCasos, setGeneratedCasos] = useState<Caso[]>([]);
   //Estado para almacenar los Actores
@@ -207,6 +209,13 @@ const App: React.FC = () => {
     }));
   };
 
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
 
   return (
     //<>
@@ -221,7 +230,10 @@ const App: React.FC = () => {
         <button type="button" onClick={() => setIsAboutOpen(true)}>?</button>
 
         {/** dark mode button */}
-        <input type="checkbox"></input>
+        <label style={{ color: 'white', display: 'flex', alignItems: 'center' }}>
+          <input type="checkbox" checked={isDarkMode}
+            onChange={() => setIsDarkMode(!isDarkMode)}></input>
+        </label>
 
         {/* Enfoque list */}
         <h1 className="App-title"></h1>
