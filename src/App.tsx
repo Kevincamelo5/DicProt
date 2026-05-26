@@ -3,9 +3,10 @@ import ColumnProto from "./componentes/ColumnProto.tsx";
 import IconActor from './assets/Actor.svg';
 import IconCaso from './assets/CasoDeUso.svg';
 import './App.css'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import WindPrt from "./componentes/Prototipo.tsx";
-import { Actor, Caso } from "./componentes/Objects.tsx"
+import { Actor, Caso } from "./componentes/Objects.tsx";
+import { DominioEspecialidad } from "./componentes/Enfoque/Enfoque.ts";
 import AcercaDeComponent from "./componentes/AcercaDe.tsx";
 
 interface ImportedData {
@@ -81,6 +82,8 @@ const App: React.FC = () => {
   }>({});
   const [currentView, setCurrentView] = useState<number | null>(null); // ✅ (si se usa)
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+
+  const [enfoque, setEnfoque] = useState<DominioEspecialidad>('general');
 
   //funcion para exportar los datos
   const exportData = () => {
@@ -236,7 +239,22 @@ const App: React.FC = () => {
         </label>
 
         {/* Enfoque list */}
-        <h1 className="App-title"></h1>
+        <select
+          value={enfoque}
+          onChange={(e) => setEnfoque(e.target.value as DominioEspecialidad)}
+          style={{ marginLeft: '15px', padding: '5px', borderRadius: '5px', cursor: 'pointer' }}
+        >
+          <option value="general">General</option>
+          <option value="administracion"> Administración</option>
+          <option value="negocio"> Negocios</option>
+          <option value="venta"> Ventas</option>
+          <option value="desarrollo"> Desarrollo</option>
+          <option value="agricultura"> Agricultura</option>
+          <option value="salud">Salud</option>
+          <option value="educacion">Educación</option>
+        </select>
+
+        <h1 className="App-tittle"></h1>
       </header>
       <section>
         <ColumnProto
@@ -252,7 +270,7 @@ const App: React.FC = () => {
         />
         <AcercaDeComponent isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
         <div className="WindPrt" style={{}}>
-          <WindPrt casos={generatedCasos} currentView={currentView} />
+          <WindPrt casos={generatedCasos} currentView={currentView} enfoque={enfoque} />
         </div>
       </section>
     </div>
