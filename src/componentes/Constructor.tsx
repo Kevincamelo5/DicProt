@@ -5,6 +5,12 @@ import "../StyleGeneral/Constructor.css";
 
 import { Caso } from "./Objects.tsx";
 // Plantilla para "iniciar sesion"
+
+interface TemplateProps {
+  caso?: Caso;
+  enfoque?: string;
+}
+
 export const LoginTemplate = () => {
   return (
     <div>
@@ -26,7 +32,7 @@ export const LoginTemplate = () => {
   );
 };
 
-export const RegisterTemplate = ({ enfoque }: { enfoque?: string }) => {
+export const RegisterTemplate = ({ caso, enfoque }: TemplateProps) => {
   // Condicional para cambiar texto según el dominio
   let tituloRegistro = "Registrarse";
   let labelDatosExtra = "Datos de usuarios:";
