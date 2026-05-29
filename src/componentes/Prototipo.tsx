@@ -21,8 +21,7 @@ import {
   NotificationSettingsTemplate,
   ReportTemplate,
   AdminDashboardTemplate,
-  AdvancedSearchTemplate,
-  ShoppingCartTemplate, MembershipPaymentTemplate, GymClassScheduleTemplate,
+  AdvancedSearchTemplate, ShoppingCartTemplate, MembershipPaymentTemplate, GymClassScheduleTemplate, DryGestorPlane
 } from "./Constructor.tsx";
 import { calculateSimilarity } from "./calculateSimilarity.ts";
 
@@ -60,7 +59,8 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
 
       console.log("El enfoque actual de la app es:", enfoque);
 
-      const templateMap = [
+      // Enfoque a plantillas generales.
+      let templateMap = [
         {
           names: ["registrar cuenta", "crear cuenta", "registrarse"],
           component: RegisterTemplate,
@@ -172,6 +172,18 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
           threshold: 0.49,
         }
       ];
+
+      // Enfoque a plantillas del sector agricola
+      if (enfoque == "agrucultura") {
+        templateMap = [
+          ...templateMap,
+          {
+            names: ["medir humedad", "ver niveles de agua", "analizar agua"],
+            component: DryGestorPlane, // Tendrías que crear esta plantilla en Constructor.tsx
+            threshold: 0.49,
+          }
+        ]
+      }
 
       let TemplateComponent = DefaultTemplate;
       let maxSimilarity = 0;

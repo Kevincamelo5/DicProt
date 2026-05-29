@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Image from "../assets/Image.svg";
 import Clip from "../assets/Clip.svg";
+import "../StyleGeneral/Constructor.css";
 
-import "../StyleGeneral/Constructor.css"
-import {Caso} from "./Objects.tsx";
+import { Caso } from "./Objects.tsx";
 // Plantilla para "iniciar sesion"
 export const LoginTemplate = () => {
   return (
@@ -19,36 +19,51 @@ export const LoginTemplate = () => {
           contrasena:
           <input type="password" name="password" />
         </label>
-        <br/>
+        <br />
         <button>Ingresar</button>
       </form>
     </div>
   );
 };
 
-export const RegisterTemplate = () => {
+export const RegisterTemplate = ({ enfoque }: { enfoque?: string }) => {
+  // Condicional para cambiar texto según el dominio
+  let tituloRegistro = "Registrarse";
+  let labelDatosExtra = "Datos de usuarios:";
+
+  if (enfoque === "salud") {
+    tituloRegistro = "Registro de Paciente";
+    labelDatosExtra = "Historial Médico (Alergias, etc):";
+  } else if (enfoque === "educacion") {
+    tituloRegistro = "Registro de Estudiante";
+    labelDatosExtra = "Grado o Curso:";
+  } else if (enfoque === "venta") {
+    tituloRegistro = "Registro de Cliente";
+    labelDatosExtra = "Dirección de envío:";
+  }
+
   return (
     <div>
-      <h3>Registrarse</h3>
+      <h3>{tituloRegistro}</h3>
       <form>
         <label>
           usuario:
-          <br/>
+          <br />
           <input type="text" name="user" />
         </label>
-        <br/>
+        <br />
         <label>
-          Datos de usuarios:
-          <br/>
+          {labelDatosExtra}
+          <br />
           <input type="text" name="datosExtra" />
         </label>
-        <br/>
+        <br />
         <label>
           contraseña:
-          <br/>
+          <br />
           <input type="password" name="password" />
         </label>
-        <br/>
+        <br />
       </form>
       <button>Registrarse</button>
       <br />
@@ -105,9 +120,9 @@ export const SearchTemplate = () => {
       <form>
         <label>
           buscar
-          <input type="text"/>
+          <input type="text" />
         </label>
-        <button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 512 512"><path fill="#666666" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34M208 336c-70.7 0-128-57.2-128-128c0-70.7 57.2-128 128-128c70.7 0 128 57.2 128 128c0 70.7-57.2 128-128 128"/></svg></button>
+        <button><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 512 512"><path fill="#666666" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34M208 336c-70.7 0-128-57.2-128-128c0-70.7 57.2-128 128-128c70.7 0 128 57.2 128 128c0 70.7-57.2 128-128 128" /></svg></button>
       </form>
     </div>
   )
@@ -125,7 +140,7 @@ export const AddElementTemplate = () => {
           nombre:
           <input type="text" name="object" />
         </label>
-        <br/>
+        <br />
         <label>
           descripción:
           <input type="text" name="string" />
@@ -143,10 +158,10 @@ export const RecoverPasswordTemplate = () => {
     <div>
       <form>
         <label>Igrese su correo electronico:
-          <br/>
+          <br />
           <input type="text" name="string" />
         </label>
-        <br/>
+        <br />
       </form>
       <button>Enviar</button>
     </div>
@@ -157,7 +172,7 @@ export const ViewPerfilTemplate = () => {
   return (
     <div id="perfil-x">
       <img src={Image} width={64} height={64} />
-      <br/>
+      <br />
       <p>nombre: user01</p>
       <br />
       <p>correo: xxxx@xxx.com</p>
@@ -181,17 +196,17 @@ export const PublishTemplate = () => {
     <div>
       <form>
         <label>agregar publicacion</label>
-        <br/>
+        <br />
         <label> Escribe lo que piensas</label>
         <textarea> Escribir contenido</textarea>
       </form>
-      <p>Agregar archivo <img src={Clip} width={12} height={12}/> </p>
+      <p>Agregar archivo <img src={Clip} width={12} height={12} /> </p>
 
       <button>publicar</button>
     </div>
   )
 }
-export const DefaultTemplate = ({caso} : { caso: Caso }) => {
+export const DefaultTemplate = ({ caso }: { caso: Caso }) => {
   return (
     <div>
       <h3>{caso.name}</h3>
@@ -269,7 +284,7 @@ export const ReportTemplate = () => (
     <div className="report-charts">
       <div className="chart-placeholder">
         <h3>Actividad Mensual</h3>
-        <div className="chart-area" style={{height: '200px', backgroundColor: '#f5f5f5', borderRadius: '8px', margin: '10px 0'}}>
+        <div className="chart-area" style={{ height: '200px', backgroundColor: '#f5f5f5', borderRadius: '8px', margin: '10px 0' }}>
           {/* Aquí iría un gráfico real */}
         </div>
       </div>
@@ -299,19 +314,19 @@ export const AdminDashboardTemplate = () => (
         <h3>Últimos usuarios registrados</h3>
         <table className="admin-table">
           <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Fecha</th>
-          </tr>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Fecha</th>
+            </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>María García</td>
-            <td>maria@example.com</td>
-            <td>25/09/2023</td>
-          </tr>
-          {/* Más registros */}
+            <tr>
+              <td>María García</td>
+              <td>maria@example.com</td>
+              <td>25/09/2023</td>
+            </tr>
+            {/* Más registros */}
           </tbody>
         </table>
       </div>
@@ -573,7 +588,7 @@ export const ReservationTemplate = () => (
       </div>
       <button className="btn-primary">Reservar</button>
     </div>
-    <div className="reservation-confirmation" style={{display: 'none'}}>
+    <div className="reservation-confirmation" style={{ display: 'none' }}>
       <h3>¡Reserva confirmada!</h3>
       <p>Mesa para 2 personas el 15/10/2023 a las 19:00</p>
     </div>
@@ -619,29 +634,29 @@ export const GymClassScheduleTemplate = () => {
       <h2>Horario de Clases del Gimnasio</h2>
       <table>
         <thead>
-        <tr>
-          <th>Hora</th>
-          {daysOfWeek.map((day, index) => (
-            <th key={index}>{day}</th>
-          ))}
-        </tr>
+          <tr>
+            <th>Hora</th>
+            {daysOfWeek.map((day, index) => (
+              <th key={index}>{day}</th>
+            ))}
+          </tr>
         </thead>
         <tbody>
-        {hours.map((hour, rowIndex) => (
-          <tr key={rowIndex}>
-            <td>{hour}</td>
-            {daysOfWeek.map((_, colIndex) => {
-              const color = getRandomColor();
-              return (
-                <td
-                  key={colIndex}
-                  style={{ backgroundColor: color }}
-                  onClick={() => handleCellClick(color)}
-                ></td>
-              );
-            })}
-          </tr>
-        ))}
+          {hours.map((hour, rowIndex) => (
+            <tr key={rowIndex}>
+              <td>{hour}</td>
+              {daysOfWeek.map((_, colIndex) => {
+                const color = getRandomColor();
+                return (
+                  <td
+                    key={colIndex}
+                    style={{ backgroundColor: color }}
+                    onClick={() => handleCellClick(color)}
+                  ></td>
+                );
+              })}
+            </tr>
+          ))}
         </tbody>
       </table>
 
@@ -669,3 +684,9 @@ export const GymClassScheduleTemplate = () => {
     </div>
   );
 };
+
+export const DryGestorPlane = () => {
+  return (
+    <div></div>
+  )
+}
