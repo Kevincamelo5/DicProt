@@ -691,8 +691,34 @@ export const GymClassScheduleTemplate = () => {
   );
 };
 
-export const DryGestorPlane = () => {
+export const DryGestorTemplate = () => {
   return (
     <div></div>
+  )
+}
+
+export const AppoimentTemplate = ({ caso, enfoque }: TemplateProps) => {
+
+  let tituloRegistro = "Registrarse";
+  let labelDatosExtra = "Datos de usuarios:";
+
+  if (enfoque === "salud") {
+    tituloRegistro = "Registro de Paciente";
+    labelDatosExtra = "Historial Médico (Alergias, etc):";
+  } else if (enfoque === "educacion") {
+    tituloRegistro = "Registro de Estudiante";
+    labelDatosExtra = "Grado o Curso:";
+  } else if (enfoque === "venta") {
+    tituloRegistro = "Registro de Cliente";
+    labelDatosExtra = "Dirección de envío:";
+  }
+
+  return (
+    <div>
+      <h3>{tituloRegistro}</h3>
+      <form>
+        {/* ... resto de tu formulario ... */}
+      </form>
+    </div>
   )
 }

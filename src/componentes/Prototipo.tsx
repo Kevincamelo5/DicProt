@@ -21,7 +21,7 @@ import {
   NotificationSettingsTemplate,
   ReportTemplate,
   AdminDashboardTemplate,
-  AdvancedSearchTemplate, ShoppingCartTemplate, MembershipPaymentTemplate, GymClassScheduleTemplate, DryGestorPlane
+  AdvancedSearchTemplate, ShoppingCartTemplate, MembershipPaymentTemplate, GymClassScheduleTemplate, DryGestorTemplate, AppoimentTemplate
 } from "./Constructor.tsx";
 import { calculateSimilarity } from "./calculateSimilarity.ts";
 
@@ -174,13 +174,24 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
       ];
 
       // Enfoque a plantillas del sector agricola
-      if (enfoque == "agrucultura") {
+      if (enfoque === "agricultura") {
         templateMap = [
           ...templateMap,
           {
             names: ["medir humedad", "ver niveles de agua", "analizar agua"],
-            component: DryGestorPlane, // Tendrías que crear esta plantilla en Constructor.tsx
+            component: DryGestorTemplate, // Tendrías que crear esta plantilla en Constructor.tsx
             threshold: 0.49,
+          }
+        ]
+      }
+
+      if (enfoque === "salud") {
+        templateMap = [
+          ...templateMap,
+          {
+            names: ["sacar cita", "registrar cita", "cita medica", "levantar cita"],
+            component: AppoimentTemplate,
+            threshold: 0.49
           }
         ]
       }
@@ -209,7 +220,7 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
     }
 
     const currentCaso = filteredCasos[currentIndex];
-    const TemplateComponent = getTemplateComponent(currentCaso);
+    const TemplateComponent = getTemplateComponent(currentCaso) as React.FC<any>;
 
     return (
       <div className="windPrt">
@@ -222,7 +233,7 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
 
           {/* Contenido del carrusel */}
           <div className="carousel-slide active">
-            <TemplateComponent caso={currentCaso} />
+            <TemplateComponent caso={currentCaso} enfoque={enfoque} />
           </div>
 
           {/* Botón para avanzar */}

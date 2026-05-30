@@ -1,1 +1,1 @@
-export type DominioEspecialidad = 'general' | 'negocio' | 'venta' | 'administracion' | 'desarrollo' | 'agrucultura' | 'salud' | 'educacion';
+export type DominioEspecialidad = 'general' | 'negocio' | 'venta' | 'administracion' | 'desarrollo' | 'agricultura' | 'salud' | 'educacion';
