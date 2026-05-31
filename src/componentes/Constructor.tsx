@@ -32,7 +32,7 @@ export const LoginTemplate = () => {
   );
 };
 
-export const RegisterTemplate = ({ caso, enfoque }: TemplateProps) => {
+export const RegisterTemplate = ({ enfoque }: TemplateProps) => {
   // Condicional para cambiar texto según el dominio
   let tituloRegistro = "Registrarse";
   let labelDatosExtra = "Datos de usuarios:";
@@ -697,25 +697,13 @@ export const DryGestorTemplate = () => {
   )
 }
 
-export const AppoimentTemplate = ({ caso, enfoque }: TemplateProps) => {
-
-  let tituloRegistro = "Registrarse";
-  let labelDatosExtra = "Datos de usuarios:";
-
-  if (enfoque === "salud") {
-    tituloRegistro = "Registro de Paciente";
-    labelDatosExtra = "Historial Médico (Alergias, etc):";
-  } else if (enfoque === "educacion") {
-    tituloRegistro = "Registro de Estudiante";
-    labelDatosExtra = "Grado o Curso:";
-  } else if (enfoque === "venta") {
-    tituloRegistro = "Registro de Cliente";
-    labelDatosExtra = "Dirección de envío:";
-  }
+export const AppoimentTemplate = ({ enfoque }: TemplateProps) => {
 
   return (
     <div>
-      <h3>{tituloRegistro}</h3>
+      <h3>
+        Cita medica
+      </h3>
       <form>
         {/* ... resto de tu formulario ... */}
       </form>

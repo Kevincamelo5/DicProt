@@ -3,7 +3,7 @@ import ColumnProto from "./componentes/ColumnProto.tsx";
 import IconActor from './assets/Actor.svg';
 import IconCaso from './assets/CasoDeUso.svg';
 import './App.css'
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import WindPrt from "./componentes/Prototipo.tsx";
 import { Actor, Caso } from "./componentes/Objects.tsx";
 import { DominioEspecialidad } from "./componentes/Enfoque/Enfoque.ts";
