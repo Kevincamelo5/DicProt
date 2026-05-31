@@ -697,7 +697,7 @@ export const DryGestorTemplate = () => {
   )
 }
 
-export const AppoimentTemplate = ({ enfoque }: TemplateProps) => {
+export const AppoimentTemplate = () => {
 
   return (
     <div>
