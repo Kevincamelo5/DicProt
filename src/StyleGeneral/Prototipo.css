@@ -9,13 +9,14 @@
     position: absolute;
     align-items: center;
     border-radius: 10px;
-    padding: 20px;
+    padding: 35px;
     margin: 0 auto;
     max-width: 600vh;
     max-height: 120vh;
     /*overflow-y: auto;*/
     overflow: hidden;
     background-color: #f9f9f9;
+    gap: 55vh;
 }
 
 .windPrt h2 {
@@ -28,6 +29,7 @@
     flex-direction: column;
     gap: 10px;
 }
+
 .windPrt::-webkit-scrollbar {
     width: 8px;
 }
@@ -50,14 +52,18 @@
 }
 
 .carousel-slide {
-    display: none; /* Ocultar todas las diapositivas */
+    display: none;
+    padding: 35px;
+    /* Ocultar todas las diapositivas */
     width: 100%;
     box-sizing: border-box;
     text-align: center;
 }
 
 .carousel-slide.active {
-    display: block; /* Mostrar solo la diapositiva activa */
+    display: block;
+    padding: 35px;
+    /* Mostrar solo la diapositiva activa */
 }
 
 .carousel-button {
@@ -73,11 +79,13 @@
 }
 
 .carousel-button.prev {
-    left: 10px; /* Botón izquierdo */
+    left: 10px;
+    /* Botón izquierdo */
 }
 
 .carousel-button.next {
-    right: 10px; /* Botón derecho */
+    right: 10px;
+    /* Botón derecho */
 }
 
 .carousel-button:hover {
