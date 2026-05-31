@@ -92,14 +92,14 @@ section {
 }
 
 section>div:first-child {
-  flex: 3;
+  flex: 1;
   padding: 30px;
   border-right: 1px solid #ccc;
   overflow-y: auto;
 }
 
 section>div:last-child {
-  flex: 2;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,23 +1,30 @@
 /*estilo dentro de la columna prototipo*/
 .scroll-container {
-    width: 100vh; /* Ancho máximo */
-    overflow-x: auto; /* Scroll horizontal */
-    overflow-y: auto; /* Scroll vertical */
+    width: 100vh;
+    /* Ancho máximo */
+    overflow-x: auto;
+    /* Scroll horizontal */
+    overflow-y: auto;
+    /* Scroll vertical */
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: flex-start; /* Alinear al inicio verticalmente */
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: flex-start;
+    /* Alinear al inicio verticalmente */
 }
 
-.container-columns{
+.container-columns {
     display: flex;
-    gap: 20px; /* Espacio entre las columnas */
-    min-width: max-content; /* Permite que el contenido se expanda más allá del ancho del contenedor */
+    gap: 20px;
+    /* Espacio entre las columnas */
+    min-width: max-content;
+    /* Permite que el contenido se expanda más allá del ancho del contenedor */
     color: #1a1a1a;
 
     max-width: 160vh;
 }
 
-.clproto{
+.clproto {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -111,7 +118,7 @@
     align-items: center;
     font-weight: bold;
     font-size: 14px;
-    margin:  24px auto;
+    margin: 24px auto;
     position: relative;
 }
 
@@ -121,7 +128,7 @@
     height: 64px;
 }
 
-.actor img .close{
+.actor img .close {
     width: 32px;
     height: 32px;
 }
@@ -156,8 +163,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Evita que las líneas bloqueen clics */
-    z-index: 1; /* Coloca las líneas detrás de los elementos interactivos */
+    pointer-events: none;
+    /* Evita que las líneas bloqueen clics */
+    z-index: 1;
+    /* Coloca las líneas detrás de los elementos interactivos */
     border: 1px solid #ff6600;
 }
 
@@ -167,16 +176,16 @@
     transition: all 0.3s ease;
 }
 
-.actor:active{
+.actor:active {
     box-shadow: #1a1a1a 1px 1px 1px;
 }
 
-.actor.highlighted{
+.actor.highlighted {
     border: 2px solid #ffcc00;
     box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
 }
 
-.caso.highlighted{
+.caso.highlighted {
     border: 2px solid #ff6600;
     box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
 }
@@ -188,15 +197,21 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* Coloca las líneas detrás de los elementos interactivos */
+    z-index: 1;
+    /* Coloca las líneas detrás de los elementos interactivos */
 }
 
-.connections-layer line, .connections-layer text{
+.connections-layer line,
+.connections-layer text {
     pointer-events: auto;
 }
 
-.close{
+.close {
     background-color: #333333;
     position: relative;
     justify-content: center;
+}
+
+body.dark-mode .actor-icon {
+    filter: drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.8));
 }
