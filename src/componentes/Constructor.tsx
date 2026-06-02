@@ -691,12 +691,6 @@ export const GymClassScheduleTemplate = () => {
   );
 };
 
-export const DryGestorTemplate = () => {
-  return (
-    <div></div>
-  )
-}
-
 export const AppoimentTemplate = () => {
 
   return (

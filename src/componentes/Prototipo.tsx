@@ -21,8 +21,12 @@ import {
   NotificationSettingsTemplate,
   ReportTemplate,
   AdminDashboardTemplate,
-  AdvancedSearchTemplate, ShoppingCartTemplate, MembershipPaymentTemplate, GymClassScheduleTemplate, DryGestorTemplate, AppoimentTemplate
+  AdvancedSearchTemplate, ShoppingCartTemplate, MembershipPaymentTemplate, GymClassScheduleTemplate, AppoimentTemplate
 } from "./Constructor.tsx";
+
+import {
+  IrrigationDashboardTemplate
+} from "./Templates/AgriculturaTemplates.tsx"
 import { calculateSimilarity } from "./calculateSimilarity.ts";
 
 interface WindPrtProps {
@@ -178,9 +182,16 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
         templateMap = [
           ...templateMap,
           {
-            names: ["medir humedad", "ver niveles de agua", "analizar agua"],
-            component: DryGestorTemplate, // Tendrías que crear esta plantilla en Constructor.tsx
-            threshold: 0.49,
+            names: [
+              "planificar riego",
+              "ver humedad del suelo",
+              "alertas de clima",
+              "dashboard agricola",
+              "decisiones hidricas",
+              "programar aspersores"
+            ],
+            component: IrrigationDashboardTemplate, // Tendrías que crear esta plantilla en Constructor.tsx
+            threshold: 0.60,
           }
         ]
       }
