@@ -26,7 +26,7 @@ const mockAlerts = [
 
 export const MonitorTemplate = () => {
     // Estado para simular la cuadrícula de zonas (heredado de tu idea anterior)
-    const [zones, setZones] = useState([
+    const [zones] = useState([
         { id: 1, name: 'Zona A1', status: 'optimal', moisture: 65 },
         { id: 2, name: 'Zona A2', status: 'optimal', moisture: 70 },
         { id: 3, name: 'Zona B1', status: 'warning', moisture: 35 },
