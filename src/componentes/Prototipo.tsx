@@ -25,7 +25,8 @@ import {
 } from "./Constructor.tsx";
 
 import {
-  IrrigationDashboardTemplate
+  IrrigationDashboardTemplate,
+  MonitorTemplate
 } from "./Templates/AgriculturaTemplates.tsx"
 import { calculateSimilarity } from "./calculateSimilarity.ts";
 
@@ -192,6 +193,16 @@ const WindPrt: React.FC<WindPrtProps> = ({ casos, currentView, enfoque }) => {
             ],
             component: IrrigationDashboardTemplate, // Tendrías que crear esta plantilla en Constructor.tsx
             threshold: 0.60,
+          },
+          {
+            names: [
+              "Monitorear cultivo",
+              "Administrar milpa",
+              "Supervisar plantas",
+              "Ver estado del plantillo"
+            ],
+            component: MonitorTemplate,
+            threshold: 60,
           }
         ]
       }
